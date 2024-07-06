@@ -1,0 +1,166 @@
+#find distinct(unique) element in array (Unique array)
+
+-------------------Using PHP----------------
+
+function find_unique_elements($array){
+    $unique_elements = [];
+    foreach($array as $element){
+      $is_unique = true;
+      foreach($unique_elements as $unique){
+          if($element == $$unique){
+            $is_unique = false;
+          }
+      }
+      
+      if($is_unique){
+        $unique_elements[]  = $element;
+      }
+    }
+    return $unique_elements;
+}
+
+
+-------------------Using Java----------------
+
+public function UniqueElements{
+
+  public function ArrayList<Interger> findUnique(int[] array){
+    ArrayList<Integer> uniqueElements = new ArrayList<>();
+
+    for(int i = 0; i < array.length; i++){
+      int currentElement = array[i];
+      boolean isUnique = true;
+
+      for(int j=0;j<uniqueElements.length;j++){
+          if(currentElement == uniqueElements[j]){
+            isUnique = false;
+            break;
+          }
+      }
+
+      if(isUnique){
+        uniqueElements.add(currentElement);
+      }
+    }
+    return uniqueElements;
+  }
+
+  public static void main(String[] args) {
+        int[] array1 = {1, 2, 2, 3, 4, 4, 5};
+        
+        ArrayList<Integer> uniqueElements1 = findUniqueElements(array1);
+        System.out.println("Unique elements in array1: " + uniqueElements1);
+    }
+}
+
+
+-------------------Using Python----------------
+
+def find_unique_elements(array):
+      unique_elemts = []
+      for element in array:
+          is_unique = true
+
+          for unique in unique_elements:
+              if element == unique:
+                  is_unique = false
+                  break
+
+          if is_unique :
+              unique_elements.append(element)
+
+      return unique_elements
+
+array1 = [1, 2, 2, 3, 4, 4, 5]
+print("Unique elements in array1:", find_unique_elements(array1))
+
+
+
+-------------------Using C----------------
+
+#include <stdio.h>
+
+void findUniqueElements(int array[],int size, int* uniqueCount){
+  int uniqueElements[size];
+  int uniqueCount = 0;
+  int isUnique;
+
+  for(int i = 0; i < size; i++ ){
+    is_unique = 1;
+    
+    for(int j =0 ; j < uniqueCount ; j++){
+      if(array[i] == uniqueElements[j]){
+        isUnique = 0;
+        break;
+      }
+    }
+
+    if(isUnique){
+      uniqueElements[uniqueCount++] = array[i];
+    }
+  }
+
+  return uniqueElements;
+  
+}
+
+int main(){
+  int array[] = {1,2,5,8,9,5,2,1,6,7};
+  int size = sizeof(array)/sizeof(array[0]);
+  int uniqueCount;
+
+  int* uniqueElements = findUniqueElements(array, size, &uniqueCount);
+  
+  printf("Unique Elements :");
+  for(int i = 0; i <uniqueCount;i++){
+    printf("%d",uniqueElements[i]);
+  }
+  printf("\n");
+  return 0;
+}
+
+
+-------------------Using C++----------------
+
+  #include <iostream>
+
+void findUniqueElements(int array[],int size,int& uniqueCount){
+  static int uniqueElements[100];
+  int uniqueElements[size];
+  int uniqueCount = 0;
+  int isUnique;
+
+  for(int i = 0; i < size; i++ ){
+    is_unique = 1;
+    
+    for(int j =0 ; j < uniqueCount ; j++){
+      if(array[i] == uniqueElements[j]){
+        isUnique = 0;
+        break;
+      }
+    }
+
+    if(isUnique){
+      uniqueElements[uniqueCount++] = array[i];
+    }
+  }
+
+  return uniqueElements;
+  
+}
+
+int main(){
+  int array[] = {1,2,5,8,9,5,2,1,6,7};
+  int size = sizeof(array)/sizeof(array[0]);
+  int uniqueCount;
+
+  int* uniqueElements = findUniqueElements(array, size, &uniqueCount);
+  
+  cout << "Unique elements: ";
+  for(int i = 0; i <uniqueCount;i++){
+     cout << uniqueElements[i] << " ";
+  }
+  cout << endl;
+  
+  return 0;
+}    
